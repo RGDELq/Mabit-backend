@@ -6,14 +6,16 @@ use App\Models\category;
 use App\Models\property;
 use Illuminate\Http\Request;
 
-class propertyController extends Controller
+class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        
         $property = property::all();
+        
         return view('property.index', compact('property'));
     }
 
@@ -22,8 +24,9 @@ class propertyController extends Controller
      */
     public function create()
     {
-        return view('property.create');
-
+        
+        $categories = category::all();
+        return view('property.create', compact('categories')); 
     }
 
     /**
@@ -31,29 +34,43 @@ class propertyController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
-        ]);
-
+            'category_id'=>'required',
+            'detail' => 'required',
+            'price' => 'required',
+            'floor' => 'required',
+            'rooms' => 'required',
+            'city' => 'required',
+            'phonenumber' => 'required',
+            'status' => 'required',]);
+            
         $input = $request->all();
-        category::create($input);
+        if ($image = $request->file('image')) {
+            $destinationPath = 'img/';
+            $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $productImage);
+            $input['image'] = "$productImage";
+        }
+        property::create($input);
         return redirect()->route('property.index')
             ->with('success','property created successfully.');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(category $category)
+    public function show(property $property)
     {
         return view('property.show', compact('property'));
-
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(category $category)
+    public function edit(property $property)
     {
         return view('property.edit', compact('property'));
 
@@ -62,29 +79,42 @@ class propertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request, property $property)
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'category_id'=>'required',
+            'detail' => 'required',
+            'price' => 'required',
+            'floor' => 'required',
+            'rooms' => 'required',
+            'city' => 'required',
+            'phonenumber' => 'required',
+            'status' => 'required',
         ]);
 
         $input = $request->all();
+        if ($image = $request->file('image')) {
+            $destinationPath = 'img/';
+            $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $productImage);
+            $input['image'] = "$productImage";
+        } else {
+            unset($input['image']);
+        }
 
-
-        $category->update($input);
-        return redirect()->route('category.index')
-            ->with('success','Product updated successfully.');
+        $property->update($input);
+        return redirect()->route('property.index')
+            ->with('success','property updated successfully.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(category $category)
+    public function destroy(property $property)
     {
-        $category->delete();
-        return redirect()->route('products.index')
-            ->with('success','Product deleted successfully');
-    
-    }
-}
+        $property->delete();
+        return redirect()->route('property.index')
+            ->with('success','property deleted successfully');
+    }}

@@ -3,11 +3,11 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
-            <h4 class="mb-3 mb-md-0">Add New Product</h4>
+            <h4 class="mb-3 mb-md-0">Add New category</h4>
         </div>
         <div class="d-flex align-items-center flex-wrap text-nowrap">
             <a href="{{route('category.index')}}" class="btn btn-info btn-icon-text mb-2 mb-md-0">
-                All categor=
+                All categories
             </a>
         </div>
     </div>
@@ -28,10 +28,15 @@
             <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Product Name <span class="text-danger">*</span></label>
-                    <input id="name" name="name" type="text" class="form-control" placeholder="Product Name">
+                    <label for="name" class="form-label">category Name <span class="text-danger">*</span></label>
+                    <input id="name" name="name" type="text" class="form-control" placeholder="category Name">
                 </div>
                 
+                {{-- <select name="category">
+                    @foreach($categories as $id => $name)
+                        <option value={{ $id }}>{{ $name }}</option>
+                    @endforeach
+                </select> --}}
                 <div>
                     <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
                         Save                      

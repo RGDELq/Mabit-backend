@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\Image;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,22 @@ class ProductsController extends Controller
         $products = Products::all();
         return view('products.index', compact('products'));
     }
+    // public function fileUpload(Request $request)
+    // {
+    // $fileNames=[];
+
+    //       foreach($request->file('file') as $image)
+    //       {
+
+    //           $imageName=  $image->getClientOriginalName();
+    //           $image->move(public_path().'/images', $imageName);
+    //           $fileNames[]=$imageName;
+    //         }
+    //         $images=json_decode($fileNames);
+    //         image::create(['images'=>$images]);
+            
+    //         return back();
+    // }
 
     public function create()
     {
@@ -18,6 +35,8 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+    
+        
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
@@ -50,7 +69,9 @@ class ProductsController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'price' => 'required'
+            
         ]);
 
         $input = $request->all();

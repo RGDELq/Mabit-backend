@@ -79,7 +79,7 @@
                             </a>
                             <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                                 <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
-                                    <img class="wd-30 ht-30 rounded-circle" src="../assets/images/faces/face6.jpg" alt="userr">
+                                    <img class="wd-30 ht-30 rounded-circle" src="logo1.png" alt="userr">
                                 </div>
                                 <div class="flex-grow-1 me-2">
                                     <p>New customer registered</p>

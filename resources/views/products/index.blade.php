@@ -20,7 +20,6 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-
             <div class="table-responsive">
                 <table class="table table-sm table-hover mb-0">
                     <thead>
@@ -29,6 +28,8 @@
                         <th class="pt-0">Product Name</th>
                         <th class="pt-0">Product Detail</th>
                         <th class="pt-0">Product Image</th>
+                        <th class="pt-0">Product price</th>
+
                         <th class="pt-0">Created At</th>
                         <th class="pt-0">Actions</th>
                     </tr>
@@ -40,6 +41,7 @@
                             <td>{{$val->name}}</td>
                             <td>{{$val->detail}}</td>
                             <td><img alt="img" src="/img/{{ $val->image }}" width="100px"></td>
+                            <td>{{$val->price}}</td>
                             <td>{{ $val->created_at }}</td>
                             <td>
                                 <form action="{{ route('products.destroy',$val->id) }}" method="POST">

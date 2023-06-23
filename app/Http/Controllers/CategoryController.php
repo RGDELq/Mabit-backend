@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -15,16 +16,15 @@ class CategoryController extends Controller
         $category = category::all();
         return view('category.index', compact('category'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         return view('category.create');
-
+        
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -33,21 +33,20 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-
+        
         $input = $request->all();
         category::create($input);
         return redirect()->route('category.index')
-            ->with('success','Product created successfully.');
+        ->with('success','category created successfully.');
     }
-
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(category $category)
     {
         return view('category.show', compact('category'));
-
     }
+    /**
+     * Display the specified resource.
+     */
 
     /**
      * Show the form for editing the specified resource.
@@ -65,7 +64,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            
         ]);
 
         $input = $request->all();
@@ -73,17 +72,18 @@ class CategoryController extends Controller
 
         $category->update($input);
         return redirect()->route('category.index')
-            ->with('success','Product updated successfully.');
+            ->with('success','category updated successfully.');
     }
 
+   
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(category $category)
     {
         $category->delete();
-        return redirect()->route('products.index')
-            ->with('success','Product deleted successfully');
+        return redirect()->route('category.index')
+            ->with('success','category deleted successfully');
     
     }
 }

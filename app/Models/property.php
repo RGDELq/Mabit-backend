@@ -8,17 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class property extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'id',
-        'category_id',
-        'name',
-        'image',
-        'description',
-        'price',
-        'floor',
-        'rooms',
-        'city',
-        'owner',
-        'status',
-    ];
+
+    protected $fillable = ['name','category_id', 'image', 'detail', 'price', 'floor', 'rooms', 'city', 'phonenumber', 'status' ];
+
+    public function ctegories()
+    {
+        return $this->hasMany(category::class,'id','name');
+    }
 }

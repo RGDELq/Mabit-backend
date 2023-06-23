@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
             $table->string('name');
-            $table->string('image');
-            $table->text('description');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->text('detail');
             $table->double('price');
             $table->integer('floor');
             $table->integer('rooms');
-            $table->string('city');
-            $table->string('owner');
-            $table->boolean('status')->default(0);
+            $table->text('city');
+            $table->integer('phonenumber');
+            $table->integer('status');
+
             $table->timestamps();
         });
     }
@@ -30,8 +30,12 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('properties');
+        Schema::table('properties', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
+        });
     }
+
 };

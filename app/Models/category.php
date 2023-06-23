@@ -13,4 +13,9 @@ class category extends Model
         'id',
         'name'
     ];
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }
