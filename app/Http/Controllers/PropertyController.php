@@ -25,7 +25,7 @@ class PropertyController extends Controller
     public function create()
     {
         
-        $categories = category::all();
+        $categories = category::get();
         return view('property.create', compact('categories')); 
     }
 
@@ -64,7 +64,10 @@ class PropertyController extends Controller
      */
     public function show(property $property)
     {
-        return view('property.show', compact('property'));
+
+        $categories = category::get();
+
+        return view('property.show', compact('property', 'categories'));
     }
 
     /**
@@ -102,7 +105,6 @@ class PropertyController extends Controller
         } else {
             unset($input['image']);
         }
-
         $property->update($input);
         return redirect()->route('property.index')
             ->with('success','property updated successfully.');

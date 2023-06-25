@@ -61,7 +61,7 @@
                     <input type="text" name="status" id="status" class="form-control" required>
                 </div>
                 <div>
-                    <a href="{{route('property.edit',$product->id)}}" class="btn btn-success btn-icon-text mb-2 mb-md-0">
+                    <a href="{{route('property.edit',$property->id)}}" class="btn btn-success btn-icon-text mb-2 mb-md-0">
                         Edit Product
                     </a>
                 </div>

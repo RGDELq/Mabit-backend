@@ -50,7 +50,7 @@
                             <td>{{$val->rooms}}</td>
                             <td>{{$val->city}}</td>
                             <td>{{$val->phonenumber}}</td>
-                            <td>{{$val->status}}</td>
+                            <td>{{$val->status == 0 ? 'Unapproved' : 'Approved'}}</td>
                             {{-- <td>{{ $val->created_at }}</td> --}}
                             <td>
                                 <form action="{{ route('property.destroy',$val->id) }}" method="POST">
