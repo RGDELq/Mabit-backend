@@ -15,6 +15,7 @@ class AuthController extends Controller
      */
     public function login(Request $request) {
         $this->validate($request, [
+            // 'name' => ['required', 'name'],
             'email' => ['required', 'email'],
             'password' =>  ['required', 'min:8'],
         ]);
@@ -38,17 +39,29 @@ class AuthController extends Controller
          * Create the customer and assign his role which is customer
          * return the newly created customer with his token
          */
-
         $this->validate($request, [
+            'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'password' =>  ['required', 'min:8'],
-        
+            'phone' => ['required', 'max:10' , 'min:10'],
         ]);
-
         User::create([
-            ''
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'phone' => $request->input('phone'),
         ])->assignRole('customer');
 
         return $this->login($request);
+    }
+
+
+    public function logout()
+    {
+        Auth::user()->currentAccessToken()->delete();
+
+        return $this->success([
+            'message' => 'You have succesfully been logged out and your token has been removed'
+        ]);
     }
 }

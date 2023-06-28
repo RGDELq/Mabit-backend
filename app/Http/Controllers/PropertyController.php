@@ -75,7 +75,9 @@ class PropertyController extends Controller
      */
     public function edit(property $property)
     {
-        return view('property.edit', compact('property'));
+        $categories = category::get();
+
+        return view('property.edit', compact('property', 'categories'));
 
     }
 
