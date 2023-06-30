@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\auth;
+namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class AuthuserController extends Controller
 {
     /**
      * login the user
@@ -55,6 +55,13 @@ class AuthController extends Controller
         return $this->login($request);
     }
 
+
+
+
+
+
+
+    
 
     public function logout()
     {
