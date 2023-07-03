@@ -43,13 +43,13 @@ class AuthuserController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'password' =>  ['required', 'min:8'],
-            'phone' => ['required', 'max:10' , 'min:10'],
+            // 'phone' => ['required', 'max:10' , 'min:10'],
         ]);
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'phone' => $request->input('phone'),
+            // 'phone' => $request->input('phone'),
         ])->assignRole('customer');
 
         return $this->login($request);

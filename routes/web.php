@@ -2,10 +2,11 @@
 
 // use App\Http\Controllers\PostsController;
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\UserController;
+
+use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,32 +21,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/w', function () {
-    return view('welcome');
+// Route::get('/w', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', function () {
+    return redirect()->route('category');
 });
 
-Route::get('/w', function () {
-    return view('products');
-});
 
-
-
+// Route::get('/category', 'CategoryController@index')->name('category');
 Route::resource('category', CategoryController::class);
-Route::resource('products', ProductsController::class);
 Route::resource('property', PropertyController::class);
+Route::resource('users', UserController::class);
+
+
 
 Route::controller(AuthController::class)->group(function(){
 
     Route::get('login', 'index')->name('login');
-
     Route::get('registration', 'registration')->name('registration');
-
     Route::get('logout', 'logout')->name('logout');
-
     Route::post('validate_registration', 'validate_registration')->name('Auth.validate_registration');
-
     Route::post('validate_login', 'validate_login')->name('Auth.validate_login');
-
     Route::get('dashboard', 'dashboard')->name('dashboard');
 
 });

@@ -7,12 +7,12 @@
                     <span class="menu-title fa-sharp fa-solid fa-bars-progress" >categories</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('products')}}">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="menu-title">product</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{url('property')}}">
                     <i class="link-icon" data-feather="box"></i>
@@ -20,23 +20,29 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{url('users')}}">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="menu-title">users</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{url('property')}}">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="menu-title">Other </span>
+                    <span class="menu-title">Comments</span>
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{url('')}}">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="menu-title">- </span>
+                </a>
+            </li>
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="menu-title">Others</span>
                 </a>
-            </li>
+            </li> --}}
     
         </ul>
     </div>

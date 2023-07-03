@@ -22,13 +22,20 @@ class PropertyuserController extends Controller
             'phonenumber' => 'required',
             'status' => 'required',]);
 
-        $filename="";
-        if($request->hasFile('image')){
-            $filename=$request->file('image')->store('posts','public');
-        }else{
-            $filename=Null;
-        }
+            
+                    $filename="";
 
+            if($request->hasFile('image')){
+                $filename = $request->file('image')->getClientOriginalName();
+                $request->file('image')->move(public_path('img'), $filename);
+            } else {
+                $filename = null;
+            }
+            
+            // Save the filename to the database
+            $images->image = $filename;
+
+    
         $images->name=$request->name;
         $images->image=$request->image;
         $images->category_id=$request->category_id;

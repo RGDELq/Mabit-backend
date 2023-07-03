@@ -3,11 +3,11 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
         <div>
-            <h4 class="mb-3 mb-md-0">Detail Product</h4>
+            <h4 class="mb-3 mb-md-0">Detail proprty</h4>
         </div>
         <div class="d-flex align-items-center flex-wrap text-nowrap">
             <a href="{{route('property.index')}}" class="btn btn-info btn-icon-text mb-2 mb-md-0">
-                All Products
+                All properties
             </a>
         </div>
     </div>
@@ -18,7 +18,7 @@
                 <div class="mb-3">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                        <input value="{{$property->name}}" type="text" name="name" id="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="category_id">Category</label>
@@ -28,37 +28,45 @@
                             @endforeach
                         </select>
                     </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="image" class="form-label">property Image <span class="text-danger">*</span></label>
-                    <input id="image" name="image" type="file" class="form-control">
+                    <input id="image" src="/img/{{ $property->image }}" name="image" type="file" class="form-control">
+                </div> --}}
+
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">property Image</label>
+                    <div>
+                        <img class="mt-2" src="/img/{{ $property->image }}" width="300px">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="detail">Detail</label>
-                    <textarea name="detail" id="detail" class="form-control" required></textarea>
+                <div class="mb-3">
+                    <label for="detail" class="form-label">Property Details </label>
+                    <textarea class="form-control" disabled placeholder="Detail " name="detail" id="detail" cols="12" rows="3">{{$property->detail}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="number" name="price" id="price" class="form-control" required>
+                    <input type="number" value="{{$property->price}}" name="price" id="price" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="floor">floor</label>
-                    <input type="number" name="floor" id="floor" class="form-control" required>
+                    <input type="number" value="{{$property->floor}}" name="floor" id="floor" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="rooms">Rooms</label>
-                    <input type="number" name="rooms" id="rooms" class="form-control" required>
+                    <input type="number" value="{{$property->rooms}}" name="rooms" id="rooms" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="phonenumber">city</label>
-                    <input type="text" name="city" id="city" class="form-control" required>
+                    <label for="city">city</label>
+                    <input type="text" value="{{$property->city}}" name="city" id="city" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="p">owner contact</label>
-                    <input type="text" name="phonenumber" id="phonenumber" class="form-control" required>
+                    <input type="text" value="{{$property->phonenumber}}" name="phonenumber" id="phonenumber" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="status">status</label>
-                    <input type="text" name="status" id="status" class="form-control" required>
+                    <input type="text" value="{{$property->status}}" name="status" id="status" class="form-control" required>
                 </div>
                 <div>
                     <a href="{{route('property.edit',$property->id)}}" class="btn btn-success btn-icon-text mb-2 mb-md-0">

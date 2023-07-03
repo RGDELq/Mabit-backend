@@ -47,11 +47,11 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> --}}
                         <i data-feather="shopping-bag"></i>
-                        <div class="indicator">
+                        {{-- <div class="indicator">
                             <div class="circle"></div>
-                        </div>
+                        </div> --}}
                     </a>
                     <div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
                         <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
@@ -112,7 +112,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="wd-30 ht-30 rounded-circle" src="{{asset('img/bg-login.jpg')}}" alt="profile">
+                        <img class="wd-60 ht-40 " src="{{asset('img/logo1.png')}}" height="90" alt="profile">
                     </a>
                     <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                         <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">

@@ -33,7 +33,7 @@
                         <th class="pt-0">floor</th>
                         <th class="pt-0">rooms</th>
                         <th class="pt-0">city</th>
-                        <th class="pt-0">owner</th>
+                        <th class="pt-0">owner contact</th>
                         <th class="pt-0">status</th>
                     </tr>
                     </thead>
@@ -42,7 +42,8 @@
                         <tr>
                             <td>{{++$index}}</td>
                             <td>{{$val->name}}</td>
-                            <td>{{$val->category_id}}</td>
+                            {{-- <td>{{$val->category_id}}</td> --}}
+                            <td>{{$val->category->name}}</td> 
                             <td><img alt="img" src="/img/{{ $val->image }}" width="100px"></td>
                             <td>{{$val->detail}}</td>
                             <td>{{$val->price}}</td>

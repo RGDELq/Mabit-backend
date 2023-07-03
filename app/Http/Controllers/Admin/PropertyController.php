@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\property;
 use Illuminate\Http\Request;
@@ -13,11 +14,13 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        
-        $property = property::all();
-        
+        $property = Property::with('category')->get(); // join categories table
         return view('property.index', compact('property'));
     }
+    //     $property = property::all();
+        
+    //     return view('property.index', compact('property'));
+    // }
 
     /**
      * Show the form for creating a new resource.
