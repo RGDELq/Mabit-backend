@@ -8,8 +8,13 @@ use App\Http\Controllers\user\PropertyuserController;
 use Illuminate\Support\Facades\Route;
 
 
-
+////////////////////////////////Api///////////////////////
 Route::post('create', [PropertyuserController::class, 'create']);
+Route::get('get', [PropertyuserController::class, 'index']);
+////////////////////////////////////////////////////////////////
+
+
+
 
 Route::get('/category', [CategoryAdminController::class, 'index']);
 

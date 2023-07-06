@@ -51,12 +51,12 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if(Auth::attempt($credentials))
+        if(Auth::attempt($credentials)&& Auth::user()->is_admin == 1)
         {
             return redirect('category');
         }
 
-        return redirect('login')->with('success', 'Login details are not valid');
+        return redirect('login')->with('success', 'You are not authorized ');
     }
 
     function dashboard()

@@ -28,7 +28,6 @@ class CategoryAdminController extends Controller
         $category->update($request->all());
         return $category;
     }
-
     public function destroy($id)
     {
         $category = category::findOrFail($id);

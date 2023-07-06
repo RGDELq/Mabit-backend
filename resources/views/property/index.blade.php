@@ -27,7 +27,7 @@
                         <th class="pt-0">#</th>
                         <th class="pt-0">property name</th>
                         <th class="pt-0">category</th>
-                        <th class="pt-0">property Image</th>
+                        <th class="pt-0"> Image</th>
                         <th class="pt-0">detail</th>
                         <th class="pt-0">price </th>
                         <th class="pt-0">floor</th>

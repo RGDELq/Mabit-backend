@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return redirect()->route('category');
+    return redirect()->route('login');
 });
 
 
