@@ -17,14 +17,6 @@ class PropertyController extends Controller
         $property = Property::with('category')->get(); // join categories table
         return view('property.index', compact('property'));
     }
-    //     $property = property::all();
-        
-    //     return view('property.index', compact('property'));
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         
@@ -32,9 +24,6 @@ class PropertyController extends Controller
         return view('property.create', compact('categories')); 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         
@@ -50,6 +39,7 @@ class PropertyController extends Controller
             'status' => 'required',]);
             
         $input = $request->all();
+        
         if ($image = $request->file('image')) {
             $destinationPath = 'img/';
             $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -61,10 +51,6 @@ class PropertyController extends Controller
             ->with('success','property created successfully.');
 
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(property $property)
     {
 
@@ -73,17 +59,11 @@ class PropertyController extends Controller
         return view('property.show', compact('property', 'categories'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(property $property)
     {
         $categories = category::get();
-
         return view('property.edit', compact('property', 'categories'));
-
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -124,4 +104,5 @@ class PropertyController extends Controller
         $property->delete();
         return redirect()->route('property.index')
             ->with('success','property deleted successfully');
-    }}
+    }
+}

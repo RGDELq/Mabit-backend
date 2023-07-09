@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('property')}}">
+                <a class="nav-link" href="{{url('rating')}}">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="menu-title">Comments</span>
                 </a>

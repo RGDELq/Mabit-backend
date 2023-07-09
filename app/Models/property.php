@@ -11,12 +11,14 @@ class property extends Model
 
     protected $fillable = ['name','category_id', 'image', 'detail', 'price', 'floor', 'rooms', 'city', 'phonenumber', 'status' ];
 
-    // public function ctegories()
-    // {
-    //     return $this->hasMany(category::class,'id','name');
-    // }
+   
     public function category()
 {
     return $this->belongsTo(Category::class);
 }
+public function rating()
+{
+    return $this->hasMany(rating::class);
+}
+
 }

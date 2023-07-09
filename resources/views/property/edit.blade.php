@@ -71,9 +71,13 @@
                 <input  value="{{$property->phonenumber}}"type="text" name="phonenumber" id="phonenumber" class="form-control" required>
             </div>
             <div class="form-group">
+
+                
                 <label for="status">status</label>
-                <input  value="{{$property->status}}"type="text" name="status" id="status" class="form-control" required>
-            </div>
+                <div class="form-group">
+                    <label for="status">status</label>
+                    <input  value="{{$property->status}}"type="text" name="status" id="status" class="form-control" required>
+                </div>
 
                 <div>
                     <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">

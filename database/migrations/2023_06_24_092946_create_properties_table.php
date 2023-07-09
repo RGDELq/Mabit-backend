@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('rooms');
             $table->text('city');
             $table->integer('phonenumber');
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->timestamps();
             $table->foreignId('category_id');
         });

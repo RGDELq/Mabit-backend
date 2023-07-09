@@ -6,8 +6,12 @@
             <h4 class="mb-3 mb-md-0">Detail proprty</h4>
         </div>
         <div class="d-flex align-items-center flex-wrap text-nowrap">
-            <a href="{{route('property.index')}}" class="btn btn-info btn-icon-text mb-2 mb-md-0">
-                All properties
+            <a href="{{route('property.index')}}" class="btn btn-warning btn-icon-text mb-2 mb-md-0">
+        unapproved
+            </a>
+            <br>
+            <a href="{{route('property.index')}}" class="btn btn-success btn-icon-text mb-2 mb-md-0">
+                approved
             </a>
         </div>
     </div>
@@ -70,7 +74,7 @@
                 </div>
                 <div>
                     <a href="{{route('property.edit',$property->id)}}" class="btn btn-success btn-icon-text mb-2 mb-md-0">
-                        Edit Product
+                        Edit property
                     </a>
                 </div>
 

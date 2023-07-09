@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\UserController;
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\RatingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,9 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/w', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -34,9 +32,11 @@ Route::get('/', function () {
 Route::resource('category', CategoryController::class);
 Route::resource('property', PropertyController::class);
 Route::resource('users', UserController::class);
+Route::resource('rating', RatingController::class);
 
 
 
+/////////////////////////////////////  Authintication Routes \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 Route::controller(AuthController::class)->group(function(){
 
     Route::get('login', 'index')->name('login');

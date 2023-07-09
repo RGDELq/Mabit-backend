@@ -45,14 +45,21 @@
                             {{-- <td>{{$val->category_id}}</td> --}}
                             <td>{{$val->category->name}}</td> 
                             <td><img alt="img" src="/img/{{ $val->image }}" width="100px"></td>
-                            <td>{{$val->detail}}</td>
+                            <td>
+                                @if(strlen($val->detail) > 10)
+                                   {{ substr($val->detail, 0, 50) }}... <a href="#" data-toggle="modal" data-target="#property{{$val->id}}">Read more</a>
+                                @else
+                                   {{$val->detail}}
+                                @endif
+                             </td>
                             <td>{{$val->price}}</td>
                             <td>{{$val->floor}}</td>
                             <td>{{$val->rooms}}</td>
                             <td>{{$val->city}}</td>
                             <td>{{$val->phonenumber}}</td>
-                            <td>{{$val->status == 0 ? 'Unapproved' : 'Approved'}}</td>
+                            <td>{{$val->status == 0 ? 'rejected' : 'accept'}}</td>
                             {{-- <td>{{ $val->created_at }}</td> --}}
+                            
                             <td>
                                 <form action="{{ route('property.destroy',$val->id) }}" method="POST">
                                     {{ csrf_field()  }}
@@ -66,6 +73,27 @@
                         </tr>
                     @endforeach
                     </tbody>
+                    @foreach($property as $index => $val)
+   <!-- Modal -->
+   <div class="modal fade" id="property{{$val->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLongTitle">Property Detail</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <p>{{ $val->detail }}</p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+@endforeach
                 </table>
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\property;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class PropertyuserController extends Controller
 {
@@ -12,7 +13,9 @@ class PropertyuserController extends Controller
 
     public function index()
     {
-        return property::all();
+        return QueryBuilder::for(property::class)
+        ->where('status', 1)
+        ->latest()->get();
     }
     // public function create(Request $request)
     // {
