@@ -29,6 +29,8 @@ class RatingController extends Controller
         $request->validate([
             'name' => 'required',
             'property_id' => 'required',
+              'status' => 'required',
+            'username' => 'required',
 
         ]);
         
@@ -39,8 +41,9 @@ class RatingController extends Controller
     }
     
     public function show(rating $rating)
-    {
-        return view('rating.show', compact('rating'));
+    {        $properties = property::get();
+
+        return view('rating.show', compact('rating', 'properties') );
     }
     /**
      * Display the specified resource.
@@ -51,7 +54,9 @@ class RatingController extends Controller
      */
     public function edit(rating $rating)
     {
-        return view('rating.edit', compact('rating'));
+              $properties = property::get();
+
+        return view('rating.edit', compact('rating','properties'));
 
     }
 
@@ -62,6 +67,9 @@ class RatingController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'status' => 'required',
+            'username' => 'required',
+
             
         ]);
 

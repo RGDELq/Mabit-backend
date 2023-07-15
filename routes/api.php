@@ -15,6 +15,10 @@ Route::post('create', [PropertyuserController::class, 'create']);
 Route::get('get', [PropertyuserController::class, 'index']);
 
 
+Route::get('/propertiesbycategory', [CategoryAdminController::class, 'propertybycategory']);
+
+
+
 Route::post('createrating', [RatinguserController::class, 'create']);
 Route::get('/getrating', 'App\Http\Controllers\user\RatinguserController@index');
 

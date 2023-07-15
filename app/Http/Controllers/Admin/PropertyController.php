@@ -105,4 +105,18 @@ class PropertyController extends Controller
         return redirect()->route('property.index')
             ->with('success','property deleted successfully');
     }
+
+    public function updateStatus(Request $request, Property $property)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+    
+        $property->update([
+            'status' => $request->status,
+        ]);
+    
+        return redirect()->back()->with('success', 'Status updated successfully.');
+    }
+
 }

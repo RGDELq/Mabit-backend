@@ -28,6 +28,8 @@
                         <th class="pt-0">#</th>
                         <th class="pt-0">rating </th>
                         <th class="pt-0">Property</th>
+                        <th class="pt-0">username</th>
+                        <th class="pt-0">status</th>
                         <th class="pt-0">Created At</th>
                         <th class="pt-0">Actions</th>
                     </tr>
@@ -38,6 +40,8 @@
                             <td>{{++$index}}</td>
                             <td>{{$val->name}}</td>
                             <td>{{$val->property->name}}</td>
+                            <td>{{$val->username}}</td> 
+                            <td>{{$val->status == 0 ? 'rejected' : 'accept'}}</td>
                             <td>{{ $val->created_at }}</td>
                             <td>
                                 <form action="{{ route('rating.destroy',$val->id) }}" method="POST">

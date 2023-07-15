@@ -34,8 +34,16 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">comment</label>
                         <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">userName</label>
+                        <input type="text" name="username" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">status</label>
+                        <input type="text" name="status" id="status" class="form-control" required>
                     </div>
                 <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
                         Save rating Data

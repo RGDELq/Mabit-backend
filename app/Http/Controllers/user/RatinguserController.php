@@ -15,22 +15,7 @@ class RatinguserController extends Controller
     {
         return rating::all();
     }
-    // public function create(Request $request)
-    // {
 
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'property_id'=>'required',
-    //     ]);
-
-       
-
-       
-    //     if($request){
-    //         return response()->json(['success'=>true, ]);
-    //     }else{
-    //         return response()->json(['success'=>false]);
-    //     }}
 
     public function create(Request $request)
 {

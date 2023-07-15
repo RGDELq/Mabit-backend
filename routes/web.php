@@ -33,7 +33,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('property', PropertyController::class);
 Route::resource('users', UserController::class);
 Route::resource('rating', RatingController::class);
-
+Route::patch('property/{property}/status', [PropertyController::class, 'updateStatus'])->name('property.updateStatus');
 
 
 /////////////////////////////////////  Authintication Routes \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
