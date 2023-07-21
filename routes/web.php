@@ -34,14 +34,13 @@ Route::resource('property', PropertyController::class);
 Route::resource('users', UserController::class);
 Route::resource('rating', RatingController::class);
 Route::patch('property/{property}/status', [PropertyController::class, 'updateStatus'])->name('property.updateStatus');
-
-
+Route::get('/logout', 'AuthController@logout')->name('logout');
 /////////////////////////////////////  Authintication Routes \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 Route::controller(AuthController::class)->group(function(){
-
-    Route::get('login', 'index')->name('login');
+    
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+        Route::get('login', 'index')->name('login');
     Route::get('registration', 'registration')->name('registration');
-    Route::get('logout', 'logout')->name('logout');
     Route::post('validate_registration', 'validate_registration')->name('Auth.validate_registration');
     Route::post('validate_login', 'validate_login')->name('Auth.validate_login');
     Route::get('dashboard', 'dashboard')->name('dashboard');

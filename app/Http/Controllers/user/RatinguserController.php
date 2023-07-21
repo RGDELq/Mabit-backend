@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\property;
 use App\Models\rating;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class RatinguserController extends Controller
 {
@@ -13,8 +14,9 @@ class RatinguserController extends Controller
 
     public function index()
     {
-        return rating::all();
-    }
+        return QueryBuilder::for(rating::class)
+        ->where('status', 1)
+        ->latest()->get();    }
 
 
     public function create(Request $request)
@@ -23,16 +25,16 @@ class RatinguserController extends Controller
     $request->validate([
         'name' => 'required',
         'property_id' => 'required',
-        // 'rating' => 'required|numeric|min:1|max:5',
-        // 'comment' => 'nullable|string|max:255',
+        'username' => 'required',
+        'status' => 'required',
     ]);
 
     // Create a new rating
     $rating = new Rating();
     $rating->name = $request->input('name');
     $rating->property_id = $request->input('property_id');
-    // $rating->rating = $request->input('rating');
-    // $rating->comment = $request->input('comment');
+    $rating->username = $request->input('username');
+    $rating->status = $request->input('status');
     $rating->save();
 
     // Return a response with the new rating data and status code 201 (Created)

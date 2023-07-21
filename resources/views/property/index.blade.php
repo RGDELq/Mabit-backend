@@ -46,7 +46,7 @@
                             <td>{{$val->category->name}}</td> 
                             <td><img alt="img" src="/img/{{ $val->image }}" width="100px"></td>
                             <td>
-                                @if(strlen($val->detail) > 10)
+                                @if(strlen($val->detail) > 3)
                                    {{ substr($val->detail, 0, 50) }}... <a href="#" data-toggle="modal" data-target="#property{{$val->id}}">Read more</a>
                                 @else
                                    {{$val->detail}}

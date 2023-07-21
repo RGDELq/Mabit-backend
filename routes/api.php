@@ -13,25 +13,19 @@ use Illuminate\Support\Facades\Route;
 ////////////////////////////////User Api///////////////////////
 Route::post('create', [PropertyuserController::class, 'create']);
 Route::get('get', [PropertyuserController::class, 'index']);
-
-
 Route::get('/propertiesbycategory', [CategoryAdminController::class, 'propertybycategory']);
 
 
 
 Route::post('createrating', [RatinguserController::class, 'create']);
-Route::get('/getrating', 'App\Http\Controllers\user\RatinguserController@index');
-
-
 Route::post('/createrating', 'App\Http\Controllers\user\RatinguserController@create');
 
+Route::get('/getrating', 'App\Http\Controllers\user\RatinguserController@index');
 Route::get('getrating', [RatinguserController::class, 'index']);
 
-////////////////////////////////////////////////////////////////
 
-
-
-
+Route::get('getuserdata', [AuthuserController::class, 'getUserData']);
+Route::get('/getuserdata', [AuthuserController::class, 'getUserData'])->middleware('auth:sanctum');
 
 
 /////////////////////////////Admin Api////////////////////////////

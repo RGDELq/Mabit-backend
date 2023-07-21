@@ -33,6 +33,18 @@
 
             @yield('content')
 
+
+<br><br><br>
+
+<div style="text-align: right">
+    <form id="logout-form" action="{{ route('logout') }}" method="GET">
+        @csrf
+        <button type="submit" class="btn btn-secondary">Logout</button>
+    </form>
+</div>
+<br><br><br>
+ 
+           
         </div>
 
 

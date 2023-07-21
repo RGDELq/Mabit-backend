@@ -28,14 +28,16 @@
             <form action="{{ route('rating.update', $rating->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 @method('PUT')
+
                 <div class="form-group">
-                    <label for="property_id">property</label>
+                    <label for="category_id">property</label>
                     <select name="property_id" id="property_id" class="form-control">
                         @foreach ($properties as $property)
                             <option value="{{ $property->id }}">{{ $property->name }}</option>
                         @endforeach
                     </select>
                 </div>
+             
                 <div class="form-group">
                     <label for="name">comment</label>
                     <input   value="{{$rating->name}}" type="text" name="name" id="name" class="form-control" required>
@@ -59,3 +61,4 @@
 
     </div>
 @endsection
+zz

@@ -69,12 +69,9 @@ class AuthController extends Controller
         return redirect('login')->with('success', 'you are not allowed to access');
     }
 
-    function logout()
+    public function logout()
     {
-        Session::flush();
-
         Auth::logout();
-
-        return Redirect('login');
+        return redirect('/login');
     }
 }

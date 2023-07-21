@@ -1,4 +1,23 @@
 @extends('templates.master')
+@section('scripts')
+    @parent
+    <script>
+        function toggleStatus() {
+            var statusBtn = document.querySelector('.status-btn');
+            var statusInput = document.querySelector('#status');
+            if (statusInput.value == 1) {
+                statusInput.value = 0;
+                statusBtn.innerText = 'Reject';
+                statusBtn.classList.remove('btn-success');
+                statusBtn.classList.add('btn-danger');
+            } else {
+                statusInput.value = 1;
+                statusBtn.innerText = 'Accept';
+                statusBtn.classList.remove('btn-danger');
+                statusBtn.classList.add('btn-success');
+            }
+        }
+    </script>
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
@@ -73,10 +92,17 @@
             <div class="form-group">
 
                 
-                <label for="status">status</label>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="status">status</label>
                     <input  value="{{$property->status}}"type="text" name="status" id="status" class="form-control" required>
+                </div> --}}
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <div>
+                        <button type="button" class="btn btn-primary status-btn" onclick="toggleStatus()">{{$property->status == 1 ? 'Accept' : 'Reject'}}</button>
+                        <input type="hidden" name="status" id="status" value="{{$property->status}}">
+                    </div>
                 </div>
 
                 <div>

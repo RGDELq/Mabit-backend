@@ -54,15 +54,13 @@ class AuthuserController extends Controller
 
         return $this->login($request);
     }
-
-
-
-
-
-
-
+    public function getUserData(Request $request) {
+        $user = $request->user();
     
-
+        return response([
+            'user' => $user,
+        ], 200);
+    }
     public function logout()
     {
         Auth::user()->currentAccessToken()->delete();
